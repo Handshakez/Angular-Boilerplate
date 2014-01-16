@@ -155,13 +155,14 @@ module.exports = function ( grunt ) {
       /**
        * The `build_css` target concatenates compiled CSS and vendor CSS
        * together.
-       */
+       *
       build_css: {
         src: [
           '<%= vendor_files.css %>'
         ],
         dest: ''
       },
+      */
       /**
        * The `compile_js` target is the concatenation of our application source
        * code and all specified vendor source code into a single file.

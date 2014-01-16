@@ -4,10 +4,11 @@
   "devDependencies": {
     "angular-latest": "~1.2.9",
     "angular-mocks": "~1.2.9",
+    "sass-bootstrap-compass": "~3.0.21",
     "bootstrap": "~3.0.3",
     "angular-bootstrap": "~0.10.0",
-    "angular-ui-router": "~0.2.8",
-    "angular-ui-utils": "~0.1.0"
+    "angular-ui-router": "0.2.7",
+    "angular-ui-utils": "~0.0.4"
   },
   "dependencies": {}
 }
