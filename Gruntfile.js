@@ -38,7 +38,7 @@ module.exports = function ( grunt ) {
      * pairs are evaluated based on this very configuration object.
      */
     meta: {
-      banner: 
+      banner:
         '/**\n' +
         ' * <%= pkg.name %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
         ' * <%= pkg.homepage %>\n' +
@@ -64,13 +64,13 @@ module.exports = function ( grunt ) {
     bump: {
       options: {
         files: [
-          "package.json", 
+          "package.json",
           "bower.json"
         ],
         commit: false,
         commitMessage: 'chore(release): v%VERSION%',
         commitFiles: [
-          "package.json", 
+          "package.json",
           "client/bower.json"
         ],
         createTag: false,
@@ -79,13 +79,13 @@ module.exports = function ( grunt ) {
         push: false,
         pushTo: 'origin'
       }
-    },    
+    },
 
     /**
      * The directories to delete when `grunt clean` is executed.
      */
-    clean: [ 
-      '<%= build_dir %>', 
+    clean: [
+      '<%= build_dir %>',
       '<%= compile_dir %>'
     ],
 
@@ -97,24 +97,24 @@ module.exports = function ( grunt ) {
     copy: {
       build_app_assets: {
         files: [
-          { 
+          {
             src: [ '**' ],
             dest: '<%= build_dir %>/assets/',
             cwd: 'src/assets',
             expand: true
           }
-       ]   
+       ]
       },
       build_vendor_assets: {
         files: [
-          { 
+          {
             src: [ '<%= vendor_files.assets %>' ],
             dest: '<%= build_dir %>/assets/',
             cwd: '.',
             expand: true,
             flatten: true
           }
-       ]   
+       ]
       },
       build_appjs: {
         files: [
@@ -170,13 +170,13 @@ module.exports = function ( grunt ) {
         options: {
           banner: '<%= meta.banner %>'
         },
-        src: [ 
-          '<%= vendor_files.js %>', 
-          'module.prefix', 
-          '<%= build_dir %>/src/**/*.js', 
-          '<%= html2js.app.dest %>', 
-          '<%= html2js.common.dest %>', 
-          'module.suffix' 
+        src: [
+          '<%= vendor_files.js %>',
+          'module.prefix',
+          '<%= build_dir %>/src/**/*.js',
+          '<%= html2js.app.dest %>',
+          '<%= html2js.common.dest %>',
+          'module.suffix'
         ],
         dest: '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.js'
       }
@@ -224,7 +224,7 @@ module.exports = function ( grunt ) {
      * nonetheless inside `src/`.
      */
     jshint: {
-      src: [ 
+      src: [
         '<%= app_files.js %>'
       ],
       test: [
@@ -382,7 +382,7 @@ module.exports = function ( grunt ) {
        * run our unit tests.
        */
       jssrc: {
-        files: [ 
+        files: [
           '<%= app_files.js %>'
         ],
         tasks: [ 'jshint:src', 'karma:unit:run', 'copy:build_appjs' ]
@@ -393,7 +393,7 @@ module.exports = function ( grunt ) {
        * files, so this is probably not very useful.
        */
       assets: {
-        files: [ 
+        files: [
           'src/assets/**/*'
         ],
         tasks: [ 'copy:build_assets' ]
@@ -411,8 +411,8 @@ module.exports = function ( grunt ) {
        * When our templates change, we only rewrite the template cache.
        */
       tpls: {
-        files: [ 
-          '<%= app_files.atpl %>', 
+        files: [
+          '<%= app_files.atpl %>',
           '<%= app_files.ctpl %>'
         ],
         tasks: [ 'html2js' ]
@@ -505,7 +505,7 @@ module.exports = function ( grunt ) {
       return file.replace( dirRE, '' );
     });
 
-    grunt.file.copy('src/index.html', this.data.dir + '/index.html', { 
+    grunt.file.copy('src/index.html', this.data.dir + '/index.html', {
       process: function ( contents, path ) {
         return grunt.template.process( contents, {
           data: {
@@ -526,7 +526,7 @@ module.exports = function ( grunt ) {
   grunt.registerMultiTask( 'karmaconfig', 'Process karma config templates', function () {
     var jsFiles = filterForJS( this.filesSrc );
     
-    grunt.file.copy( 'karma/karma-unit.tpl.js', grunt.config( 'build_dir' ) + '/karma-unit.js', { 
+    grunt.file.copy( 'karma/karma-unit.tpl.js', grunt.config( 'build_dir' ) + '/karma-unit.js', {
       process: function ( contents, path ) {
         return grunt.template.process( contents, {
           data: {
